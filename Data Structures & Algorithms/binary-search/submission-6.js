@@ -1,0 +1,21 @@
+class Solution {
+    /**
+     * @param {number[]} nums
+     * @param {number} target
+     * @return {number}
+     */
+    search(nums, target) {
+        let l = 0, r = nums.length
+
+        while (l < r) {
+            const m = l + Math.floor((r - l)/2)
+
+            if (nums[m] <= target) {
+                l = m + 1
+            } else {
+                r = m
+            }
+        }
+        return l > 0 && nums[l - 1] === target ? l - 1 : -1
+    }
+}
